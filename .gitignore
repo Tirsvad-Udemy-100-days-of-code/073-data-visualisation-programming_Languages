@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Virtual environment
+.venv/
+venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Personal files, never committed
+.env
+
+# The AI prompt log is not published (public repository)
+/docs/ai-prompts/
+
+# Editors and OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
