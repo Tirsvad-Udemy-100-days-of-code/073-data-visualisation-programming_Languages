@@ -12,7 +12,7 @@
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
 | 2026-11-11 | Deprecated | Jens Tirsvad Nielsen | S01 (AI as stand-in) | Initial version (RC-006 Go) | [36a5948] |
-| 2026-11-11 | Accepted | Jens Tirsvad Nielsen | S01 (AI as stand-in) | Source is laid out in the clean architecture layers instead of flat modules (RC-010 Go) | pending |
+| 2026-11-11 | Accepted | Jens Tirsvad Nielsen | S01 (AI as stand-in) | Source is laid out in the clean architecture layers instead of flat modules (RC-010 Go) | [23a35ce] |
 
 ---
 
@@ -73,3 +73,4 @@ The layers of `src/programming_languages/` with `plot_language` and `plot_langua
 
 [BC-001]: ../business-case.md
 [36a5948]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/073-data-visualisation-programming_Languages/commit/36a594856f17f368264c6bceef2b3ae132e56d1c
+[23a35ce]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/073-data-visualisation-programming_Languages/commit/23a35ce5e181df698d2ebce3f4f86f4f7e736e92
