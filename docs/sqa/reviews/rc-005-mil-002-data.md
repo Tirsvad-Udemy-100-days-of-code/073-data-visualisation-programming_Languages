@@ -1,0 +1,65 @@
+# Review of MIL-002
+
+## Metadata
+| Key | Value |
+| --- | --- |
+| ID | RC-005 |
+| CrossReference | [MIL-002], [QC-MIL-001], [QC-LANG-001] |
+
+## Version History
+| Date | Status | Author | Reviewer | Change | Commit |
+| --- | --- | --- | --- | --- | --- |
+| 2026-11-11 | Proposed | Jens Tirsvad Nielsen | S01 (AI as stand-in) | Initial version | pending |
+
+---
+
+## Artifact Under Review
+
+- Instance reviewed: [MIL-002]
+- Checklist used: [QC-MIL-001] (`QC-MIL-001`)
+- Scope: full review
+- Language and domain: en / it
+- Language reviewer: none (the reviewer reads English and knows the IT domain)
+- Mode: autonomous, not independent (reviewer: AI as stand-in for S01)
+
+## Checklist Results
+
+| # | Criterion | Status | Evidence/Notes |
+| --- | --- | --- | --- |
+| 1 | A concrete deliverable is defined for every gate | Pass | Deliverable section names concrete files and functions. |
+| 2 | Explicit Go/No-Go criteria are stated for each gate | Pass | Go / No-Go table has checkable criteria. |
+| 3 | Dependencies on other milestones are explicitly mapped | Pass | Dependencies section present. |
+| 4 | Each milestone is traceable to a Business Case objective or KPI | Pass | Traceability cites BC-001 objectives and success criteria. |
+| 5 | Milestone owner and approving reviewer are identified | Pass | Owner S01; approving reviewer S01 as stand-in. |
+| 6 | Milestone has a defined target date consistent with project constraints | Pass | Target date inside the BC-001 constraint (finish by 2026-11-14). |
+
+## Language and Domain Results
+
+| # | Criterion | Status | Evidence/Notes |
+| --- | --- | --- | --- |
+| 1 | The Metadata table has a `Language` row and a `Domain` row, and neither is a placeholder | Pass | Metadata has `Language` = en and `Domain` = it. |
+| 2 | `Language` is a BCP 47 code and `Domain` is a value from the registry's domain list | Pass | `en` is a BCP 47 code; `it` is in the registry domain list. |
+| 3 | The content (prose and table cells) is written in the stated language | Pass | All prose and table cells are English. |
+| 4 | The register matches the one the registry gives for the artifact type | Pass | Register of the artifact type as the registry gives it (executive English for BC, MIL, PP; professional English for SA). |
+| 5 | Domain terms are the PO terms of the domain's dictionary, with no synonyms | Pass | Terms (tag, DataFrame, pivot, rolling mean) are used with one word each. The project has no DICT, so there is no dictionary list to deviate from. |
+| 6 | Metadata keys, section headings, IDs and statuses are in English | Pass | Keys, headings, IDs and statuses are English. |
+| 7 | No translated twin (`<name>.<language>.md`) exists beside the document | Pass | No `<name>.<language>.md` twin exists. |
+| 8 | A change of language or domain since the previous accepted version has a Version History row and was reviewed again | Pass | First version; no change of language or domain. |
+| 9 | A reviewer competent in the domain, and in the language, has confirmed that the domain terms are used correctly | Pass | S01 reads English and knows the IT domain; the AI acts as stand-in, not independent (Mode below). |
+| 10 | Abbreviations are spelled out on first use, in the stated language | Pass | Abbreviations spelled out on first use (BC, SA, PO, MIL in their headings and tables). |
+
+## Overall Verdict
+
+Go. Every Mandatory criterion passes. The review is a stand-in review: the author and the reviewer are the same person's workflow, so it is not independent and stays open to challenge in the run summary.
+
+## Action Items
+
+| Action | Owner | Due |
+| --- | --- | --- |
+| None | S01 | n/a |
+
+---
+
+[MIL-002]: ../../milestones/mil-002-data.md
+[QC-MIL-001]: ../../../framework/qc/artifacts/qc-milestones-gateways.md
+[QC-LANG-001]: ../../../framework/qc/artifacts/qc-language-domain.md
