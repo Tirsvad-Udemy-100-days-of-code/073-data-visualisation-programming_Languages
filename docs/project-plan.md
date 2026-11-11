@@ -11,7 +11,7 @@
 ## Version History
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
-| 2026-11-11 | Accepted | Jens Tirsvad Nielsen | S01 (AI as stand-in) | Initial version (RC-003 Go) | pending |
+| 2026-11-11 | Accepted | Jens Tirsvad Nielsen | S01 (AI as stand-in) | Initial version (RC-003 Go) | [36a5948] |
 
 ---
 
@@ -88,3 +88,4 @@ A No-Go on a gateway moves every later gateway and the end date by the time need
 [MIL-002]: ./milestones/mil-002-data.md
 [MIL-003]: ./milestones/mil-003-charts.md
 [MIL-004]: ./milestones/mil-004-docs.md
+[36a5948]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/073-data-visualisation-programming_Languages/commit/36a594856f17f368264c6bceef2b3ae132e56d1c
