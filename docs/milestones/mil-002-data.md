@@ -11,7 +11,8 @@
 ## Version History
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
-| 2026-11-11 | Accepted | Jens Tirsvad Nielsen | S01 (AI as stand-in) | Initial version (RC-005 Go) | [36a5948] |
+| 2026-11-11 | Deprecated | Jens Tirsvad Nielsen | S01 (AI as stand-in) | Initial version (RC-005 Go) | [36a5948] |
+| 2026-11-11 | Accepted | Jens Tirsvad Nielsen | S01 (AI as stand-in) | Source is laid out in the clean architecture layers instead of flat modules (RC-009 Go) | [23a35ce] |
 
 ---
 
@@ -21,7 +22,7 @@ Decide whether the data can be loaded and prepared correctly: the dataset is ava
 
 ## Deliverable
 
-The dataset `data/QueryResults.csv` and the module `src/programming_languages/data.py` with the functions `load_data`, `posts_per_language`, `months_per_language`, `convert_dates`, `reshape_data` and `fill_missing`, each tested, and a screenshot per lecture step stored in `docs/images/`.
+The dataset `data/QueryResults.csv` and the layers `domain`, `application` and `infrastructure` of `src/programming_languages/` with the functions `load_data` (infrastructure), `posts_per_language`, `months_per_language`, `convert_dates`, `reshape_data` and `fill_missing` (domain), each tested, and a screenshot per lecture step stored in `docs/images/`.
 
 ## Go / No-Go Criteria
 
@@ -74,3 +75,4 @@ The dataset `data/QueryResults.csv` and the module `src/programming_languages/da
 
 [BC-001]: ../business-case.md
 [36a5948]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/073-data-visualisation-programming_Languages/commit/36a594856f17f368264c6bceef2b3ae132e56d1c
+[23a35ce]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/073-data-visualisation-programming_Languages/commit/23a35ce5e181df698d2ebce3f4f86f4f7e736e92

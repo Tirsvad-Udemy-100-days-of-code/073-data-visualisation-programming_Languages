@@ -11,7 +11,8 @@
 ## Version History
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
-| 2026-11-11 | Accepted | Jens Tirsvad Nielsen | S01 (AI as stand-in) | Initial version (RC-006 Go) | [36a5948] |
+| 2026-11-11 | Deprecated | Jens Tirsvad Nielsen | S01 (AI as stand-in) | Initial version (RC-006 Go) | [36a5948] |
+| 2026-11-11 | Accepted | Jens Tirsvad Nielsen | S01 (AI as stand-in) | Source is laid out in the clean architecture layers instead of flat modules (RC-010 Go) | [23a35ce] |
 
 ---
 
@@ -21,7 +22,7 @@ Decide whether the visualisation steps are correct: single, styled, two-language
 
 ## Deliverable
 
-The module `src/programming_languages/charts.py` with `plot_language`, `plot_languages` and `rolling_mean` that save charts to files with the Agg backend, tested, and one screenshot per lecture steps 6 to 10 in `docs/images/`.
+The layers of `src/programming_languages/` with `plot_language` and `plot_languages` (infrastructure) and `rolling_mean` (domain) that save charts to files with the Agg backend, tested, and one screenshot per lecture steps 6 to 10 in `docs/images/`.
 
 ## Go / No-Go Criteria
 
@@ -65,10 +66,11 @@ The module `src/programming_languages/charts.py` with `plot_language`, `plot_lan
 | 1 | Implement plot_language | Plot the Java series from the reshaped data (lecture step 6) and style it: figsize (16, 10), font sizes 14, labels Date and Number of Posts, `ylim(0, 35000)` (lecture step 7). Saves to a file; test with the Agg backend. | No | [BC-001] Objective 1 |
 | 2 | Implement plot_languages | Plot Java and Python together (lecture step 8), then all languages in a loop with `linewidth=3`, `label=column` and a legend of font size 16 (lecture step 9). Tests count the lines and the legend entries. | No | [BC-001] Objective 1 |
 | 3 | Implement rolling_mean | Smooth the series with `rolling(window=6).mean()` and plot it (lecture step 10), with a parameter for the window so 3 and 12 can be tried. Test against pandas directly. | No | [BC-001] Objective 1 |
-| 4 | Generate chart screenshots | Write a script `src/programming_languages/screenshots.py` that renders each lecture step (tables as images, charts as saved figures) into `docs/images/step-NN-name.png` headlessly. | No | [BC-001] Objective 4 |
+| 4 | Generate chart screenshots | Write a script `src/programming_languages/presentation/screenshots.py` that renders each lecture step (tables as images, charts as saved figures) into `docs/images/step-NN-name.png` headlessly. | No | [BC-001] Objective 4 |
 | 5 | Review chart code and open the pull request | Review against `qc-programming-python`, write the `RC-*`, run opengrep, open one pull request that closes this milestone's issues. | No | [BC-001] Constraints |
 
 ---
 
 [BC-001]: ../business-case.md
 [36a5948]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/073-data-visualisation-programming_Languages/commit/36a594856f17f368264c6bceef2b3ae132e56d1c
+[23a35ce]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/073-data-visualisation-programming_Languages/commit/23a35ce5e181df698d2ebce3f4f86f4f7e736e92
