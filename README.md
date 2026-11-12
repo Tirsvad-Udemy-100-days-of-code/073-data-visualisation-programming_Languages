@@ -21,9 +21,69 @@ The analysis follows the lecture step by step: explore the data, group by langua
 | --- | --- |
 | `src/programming_languages/` | The package with the functions of the assignment |
 | `tests/` | Automated tests |
-| `docs/` | Project documents (business case, plan, milestones, reviews) |
+| `docs/` | Project documents, the screenshots in `docs/images/` and the wiki sources in `docs/wiki/` |
+| `notebooks/` | The Jupyter notebook that follows the lecture |
+| `data/` | `QueryResults.csv`, the Stack Overflow export used by the lecture |
 
-The project is delivered milestone by milestone; see the milestones in the appendix for what is done.
+All four milestones are done; see the milestones in the appendix.
+
+### The lecture steps
+
+Each step has a screenshot (made by `python -m programming_languages.presentation.screenshots`) and a function of the same name as in the assignment. The wiki explains what each step teaches, in English, Danish and Bahasa Malaysia.
+
+| Step | Functions |
+| --- | --- |
+| Step 1: explore the data | `load_data`, `explore_data` |
+| Step 2: group by language | `posts_per_language`, `months_per_language` |
+| Step 3: work with timestamps | `convert_dates` |
+| Step 4: pivot the DataFrame | `reshape_data` |
+| Step 5: replace NaN values | `fill_missing` |
+| Step 6: plot one language | `plot_language(styled=False)` |
+| Step 7: style the chart | `plot_language` |
+| Step 8: two lines in one chart | `plot_languages(languages=[...])` |
+| Step 9: all languages with a legend | `plot_languages` |
+| Step 10: smooth with a rolling mean | `rolling_mean` |
+
+#### Step 1: explore the data
+
+![Step 1: explore the data](./docs/images/step-01-explore-data.png)
+
+#### Step 2: group by language
+
+![Step 2: group by language](./docs/images/step-02-group-by-language.png)
+
+#### Step 3: work with timestamps
+
+![Step 3: work with timestamps](./docs/images/step-03-timestamps.png)
+
+#### Step 4: pivot the DataFrame
+
+![Step 4: pivot the DataFrame](./docs/images/step-04-pivot.png)
+
+#### Step 5: replace NaN values
+
+![Step 5: replace NaN values](./docs/images/step-05-fill-nan.png)
+
+#### Step 6: plot one language
+
+![Step 6: plot one language](./docs/images/step-06-plot-java.png)
+
+#### Step 7: style the chart
+
+![Step 7: style the chart](./docs/images/step-07-style-chart.png)
+
+#### Step 8: two lines in one chart
+
+![Step 8: two lines in one chart](./docs/images/step-08-java-and-python.png)
+
+#### Step 9: all languages with a legend
+
+![Step 9: all languages with a legend](./docs/images/step-09-all-languages.png)
+
+#### Step 10: smooth with a rolling mean
+
+![Step 10: smooth with a rolling mean](./docs/images/step-10-rolling-mean.png)
+
 
 ## 📋 Requirements
 
@@ -61,10 +121,16 @@ Leave the environment with `deactivate`. Delete `.venv/` to start over.
 
 ## ▶️ Run
 
-Open the notebook in Jupyter (added in a later milestone):
+Open the notebook in Jupyter and run all cells:
 
 ```bash
-jupyter lab
+jupyter lab notebooks/programming_languages.ipynb
+```
+
+Or regenerate the ten screenshots from the command line:
+
+```bash
+python -m programming_languages.presentation.screenshots --output docs/images
 ```
 
 ## 🧪 Tests
