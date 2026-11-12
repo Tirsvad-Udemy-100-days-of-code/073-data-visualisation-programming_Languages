@@ -2,18 +2,36 @@
 
 # Getting started
 
-## Set up and run
+You need Python 3.13 or newer. The only runtime dependencies are pandas and Matplotlib; JupyterLab, pytest, ruff and mypy are development extras.
 
-Create a local virtual environment, install the project and run the tests:
+## Create the environment
 
-```bash
+On Windows, in PowerShell, from the project folder:
+
+```powershell
 python -m venv .venv
-source .venv/Scripts/activate
+.venv\Scripts\Activate.ps1
 python -m pip install --upgrade pip
 python -m pip install -e ".[dev]"
+```
+
+On Linux and macOS use `source .venv/bin/activate` instead of the activation line; in Git Bash on Windows use `source .venv/Scripts/activate`.
+
+## Run
+
+```bash
+python -m jupyter lab notebooks/programming_languages.ipynb
+python -m programming_languages.presentation.screenshots --output docs/images
+```
+
+The first command opens the notebook that follows the ten lecture steps. The second one regenerates the ten screenshots in `docs/images/`.
+
+## Test
+
+```bash
 python -m pytest
 ```
 
-The notebook `notebooks/programming_languages.ipynb` follows the ten steps. Open it with `jupyter lab`.
+The tests run offline and need no display: the charts are drawn with the Agg backend.
 
 [Home](Home)
