@@ -2,18 +2,36 @@
 
 # Kom i gang
 
-## Opsætning og kørsel
+Du skal bruge Python 3.13 eller nyere. De eneste runtime-afhængigheder er pandas og Matplotlib; JupyterLab, pytest, ruff og mypy er udviklingstilvalg.
 
-Opret et lokalt virtuelt miljø, installér projektet og kør testene:
+## Opret miljøet
 
-```bash
+På Windows, i PowerShell, fra projektmappen:
+
+```powershell
 python -m venv .venv
-source .venv/Scripts/activate
+.venv\Scripts\Activate.ps1
 python -m pip install --upgrade pip
 python -m pip install -e ".[dev]"
+```
+
+På Linux og macOS bruges `source .venv/bin/activate` i stedet for aktiveringslinjen; i Git Bash på Windows bruges `source .venv/Scripts/activate`.
+
+## Kør
+
+```bash
+python -m jupyter lab notebooks/programming_languages.ipynb
+python -m programming_languages.presentation.screenshots --output docs/images
+```
+
+Den første kommando åbner notebooken, der følger de ti trin i lektionen. Den anden genskaber de ti skærmbilleder i `docs/images/`.
+
+## Test
+
+```bash
 python -m pytest
 ```
 
-Notebooken `notebooks/programming_languages.ipynb` følger de ti trin. Åbn den med `jupyter lab`.
+Testene kører offline og kræver ingen skærm: diagrammerne tegnes med Agg-backend.
 
 [Hjem](Home-da)

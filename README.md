@@ -93,21 +93,19 @@ Each step has a screenshot (made by `python -m programming_languages.presentatio
 
 ## 🛠️ Setup
 
-Create and use a local virtual environment in `.venv`:
+Create and use a local virtual environment in `.venv`. On Windows, in PowerShell:
+
+```powershell
+python -m venv .venv
+.venv\Scripts\Activate.ps1
+```
+
+In Git Bash on Windows, Linux and macOS:
 
 ```bash
 python -m venv .venv
-```
-
-Activate it:
-
-```bash
 source .venv/Scripts/activate   # Git Bash on Windows
 source .venv/bin/activate       # Linux and macOS
-```
-
-```powershell
-.venv\Scripts\Activate.ps1      # PowerShell on Windows
 ```
 
 Upgrade pip, then install the project with the development extras:
