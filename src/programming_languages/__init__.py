@@ -9,6 +9,11 @@ from programming_languages.domain.language_stats import (
     reshape_data,
     rolling_mean,
 )
+from programming_languages.infrastructure.charts import (
+    plot_language,
+    plot_languages,
+    save_figure,
+)
 from programming_languages.infrastructure.csv_dataset import load_data
 
 __version__ = "0.1.0"
@@ -20,8 +25,11 @@ __all__ = [
     "fill_missing",
     "load_data",
     "months_per_language",
+    "plot_language",
+    "plot_languages",
     "posts_per_language",
     "prepare_data",
     "reshape_data",
     "rolling_mean",
+    "save_figure",
 ]

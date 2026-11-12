@@ -1,6 +1,7 @@
 """Unit tests for the language statistics rules."""
 
 import pandas as pd
+import pytest
 from pandas import DataFrame
 
 from programming_languages.domain.language_stats import (
@@ -71,3 +72,11 @@ def test_rolling_mean_uses_custom_window() -> None:
     result = rolling_mean(df, window=2)
     assert pd.isna(result["a"].iloc[0])
     assert result["a"].iloc[1] == 1.5
+
+
+@pytest.mark.parametrize("window", [3, 6, 12])
+def test_rolling_mean_matches_pandas_rolling_for_each_window(window: int) -> None:
+    df = DataFrame({"a": [float(n) for n in range(20)], "b": [2.0] * 20})
+    pd.testing.assert_frame_equal(
+        rolling_mean(df, window=window), df.rolling(window=window).mean()
+    )
