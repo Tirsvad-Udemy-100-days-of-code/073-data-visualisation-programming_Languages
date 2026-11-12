@@ -18,7 +18,9 @@ from programming_languages.domain.language_stats import (
     months_per_language,
     posts_per_language,
     reshape_data,
+    rolling_mean,
 )
+from programming_languages.infrastructure.charts import plot_language, plot_languages
 from programming_languages.infrastructure.csv_dataset import (
     DEFAULT_DATA_PATH,
     load_data,
@@ -36,8 +38,13 @@ FONT_SIZE = 9
 TITLE_FONT_SIZE = 13
 DISPLAY_WIDTH = 120
 
-# A step renderer takes the raw data and returns a title and the body text.
-StepRenderer = Callable[[DataFrame], tuple[str, str]]
+# A text step takes the raw data and returns a title and the body text.
+TextStep = Callable[[DataFrame], tuple[str, str]]
+# A step renderer takes the raw data and returns the figure to save.
+StepRenderer = Callable[[DataFrame], Figure]
+
+CHART_TITLE = "Stack Overflow posts per programming language"
+ROLLING_WINDOW = 6
 
 
 def _section(heading: str, body: object) -> str:
@@ -111,20 +118,11 @@ def _fill_nan(df: DataFrame) -> tuple[str, str]:
     return "Step 5: replace NaN with zero", body
 
 
-# Step file stems with their renderers; append chart steps here later.
-STEPS: list[tuple[str, StepRenderer]] = [
-    ("step-01-explore-data", _explore),
-    ("step-02-group-by-language", _group_by_language),
-    ("step-03-timestamps", _timestamps),
-    ("step-04-pivot", _pivot),
-    ("step-05-fill-nan", _fill_nan),
-]
-
-
-def _render(title: str, body: str, path: Path) -> None:
+def _text_figure(title: str, body: str) -> Figure:
     lines = body.count("\n") + 1
     height = lines * LINE_HEIGHT_INCHES + MARGIN_INCHES
     figure = Figure(figsize=(FIGURE_WIDTH_INCHES, height), dpi=DPI)
+    figure.set_facecolor(BACKGROUND)
     FigureCanvasAgg(figure)
     top = 1 - 0.25 / height
     figure.text(
@@ -145,10 +143,55 @@ def _render(title: str, body: str, path: Path) -> None:
         color=TEXT_COLOR,
         va="top",
     )
-    figure.savefig(path, facecolor=BACKGROUND)
+    return figure
 
 
-def generate_data_screenshots(
+def _as_figure(step: TextStep) -> StepRenderer:
+    def render(df: DataFrame) -> Figure:
+        return _text_figure(*step(df))
+
+    return render
+
+
+def _plot_java(df: DataFrame) -> Figure:
+    return plot_language(prepare_data(df), "java", styled=False)
+
+
+def _style_chart(df: DataFrame) -> Figure:
+    return plot_language(prepare_data(df), "java")
+
+
+def _java_and_python(df: DataFrame) -> Figure:
+    return plot_languages(prepare_data(df), ["java", "python"], title="Java and Python")
+
+
+def _all_languages(df: DataFrame) -> Figure:
+    return plot_languages(prepare_data(df), title=CHART_TITLE)
+
+
+def _rolling_mean(df: DataFrame) -> Figure:
+    smoothed = rolling_mean(prepare_data(df), window=ROLLING_WINDOW)
+    return plot_languages(
+        smoothed, title=f"{CHART_TITLE} ({ROLLING_WINDOW}-month rolling mean)"
+    )
+
+
+# Step file stems with their renderers; append further steps here.
+STEPS: list[tuple[str, StepRenderer]] = [
+    ("step-01-explore-data", _as_figure(_explore)),
+    ("step-02-group-by-language", _as_figure(_group_by_language)),
+    ("step-03-timestamps", _as_figure(_timestamps)),
+    ("step-04-pivot", _as_figure(_pivot)),
+    ("step-05-fill-nan", _as_figure(_fill_nan)),
+    ("step-06-plot-java", _plot_java),
+    ("step-07-style-chart", _style_chart),
+    ("step-08-java-and-python", _java_and_python),
+    ("step-09-all-languages", _all_languages),
+    ("step-10-rolling-mean", _rolling_mean),
+]
+
+
+def generate_screenshots(
     output_dir: Path, data_path: Path = DEFAULT_DATA_PATH
 ) -> list[Path]:
     """Render every step to a PNG in ``output_dir`` and return the file paths."""
@@ -157,9 +200,8 @@ def generate_data_screenshots(
     written: list[Path] = []
     with pd.option_context("display.width", DISPLAY_WIDTH):
         for stem, renderer in STEPS:
-            title, body = renderer(data)
             path = output_dir / f"{stem}.png"
-            _render(title, body, path)
+            renderer(data).savefig(path)
             logger.info("Wrote %s", path)
             written.append(path)
     return written
@@ -172,7 +214,7 @@ def main() -> None:
     parser.add_argument("--output", type=Path, default=Path("docs/images"))
     parser.add_argument("--data", type=Path, default=DEFAULT_DATA_PATH)
     args = parser.parse_args()
-    generate_data_screenshots(args.output, args.data)
+    generate_screenshots(args.output, args.data)
 
 
 if __name__ == "__main__":
