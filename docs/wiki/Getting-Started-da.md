@@ -2,11 +2,11 @@
 
 # Kom i gang
 
-Du skal bruge Python 3.13 eller nyere. De eneste runtime-afhængigheder er pandas og Matplotlib; JupyterLab, pytest, ruff og mypy er udviklingstilvalg.
+Krav: Python 3.13 eller nyere. Runtime-afhængigheder: `pandas` og `matplotlib`; JupyterLab, pytest, ruff og mypy er udviklingstilvalg.
 
-## Opret miljøet
+## Windows (PowerShell)
 
-På Windows, i PowerShell, fra projektmappen:
+Opret og brug et lokalt `.venv`:
 
 ```powershell
 python -m venv .venv
@@ -15,16 +15,25 @@ python -m pip install --upgrade pip
 python -m pip install -e ".[dev]"
 ```
 
-På Linux og macOS bruges `source .venv/bin/activate` i stedet for aktiveringslinjen; i Git Bash på Windows bruges `source .venv/Scripts/activate`.
+## Linux og macOS
+
+Opret og brug et lokalt `.venv`:
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install --upgrade pip
+python -m pip install -e ".[dev]"
+```
 
 ## Kør
+
+Kør notebooken og genskab de ti skærmbilleder i `docs/images/`:
 
 ```bash
 python -m jupyter lab notebooks/programming_languages.ipynb
 python -m programming_languages.presentation.screenshots --output docs/images
 ```
-
-Den første kommando åbner notebooken, der følger de ti trin i lektionen. Den anden genskaber de ti skærmbilleder i `docs/images/`.
 
 ## Test
 
@@ -33,5 +42,7 @@ python -m pytest
 ```
 
 Testene kører offline og kræver ingen skærm: diagrammerne tegnes med Agg-backend.
+
+Det får du: en gentagelig opsætning (et virtuelt miljø pr. projekt), en pakke installeret i redigerbar tilstand og tests, der beviser hvert trin.
 
 [Hjem](Home-da)
