@@ -9,7 +9,7 @@
 ## Version History
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
-| 2026-11-12 | Proposed | Jens Tirsvad Nielsen | S01 (AI as stand-in) | Initial version | pending |
+| 2026-11-12 | Proposed | Jens Tirsvad Nielsen | S01 (AI as stand-in) | Initial version | [68678f0] |
 
 ---
 
@@ -59,3 +59,4 @@ Go. No Mandatory criterion fails; N-A rows say why they do not apply. Stand-in r
 
 [MIL-003]: ../../milestones/mil-003-charts.md
 [QC-PY-001]: ../../../framework/qc/code/qc-programming-python.md
+[68678f0]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/073-data-visualisation-programming_Languages/commit/68678f05d0e13db75ad27ab2fe0b54db8b039fde
