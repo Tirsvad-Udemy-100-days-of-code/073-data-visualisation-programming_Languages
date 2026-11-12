@@ -9,7 +9,7 @@
 ## Version History
 | Date | Status | Author | Reviewer | Change | Commit |
 | --- | --- | --- | --- | --- | --- |
-| 2026-11-12 | Proposed | Jens Tirsvad Nielsen | S01 (AI as stand-in) | Initial version | pending |
+| 2026-11-12 | Proposed | Jens Tirsvad Nielsen | S01 (AI as stand-in) | Initial version | [2b029ee] |
 
 ---
 
@@ -57,3 +57,4 @@ Go-with-conditions. No Mandatory criterion fails; N-A rows say why they do not a
 
 [MIL-004]: ../../milestones/mil-004-docs.md
 [QC-WIKI-001]: ../../../framework/qc/artifacts/qc-wiki.md
+[2b029ee]: https://git.tirsystem.com/Tirsvad-Udemy-100-days-of-code/073-data-visualisation-programming_Languages/commit/2b029eef72ceb7276278336d55a3247d6747038b
